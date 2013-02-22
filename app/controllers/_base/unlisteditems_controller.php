@@ -5,6 +5,8 @@ class UnlisteditemsController extends ItemsController{
 	
 	function index() { $this->redirect(array('action'=>'ver')); }
 	function ver($id = false) {
+
+
 		$id = $this->_checkid($id,false);
 		
 		if($id !== false && $item = $this->m[0]->read(null,$id)){

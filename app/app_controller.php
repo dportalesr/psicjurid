@@ -146,18 +146,19 @@ class AppController extends Controller {
 			$_t = ucfirst(isset($cntrllr['singu']) ? $cntrllr['singu'] : Inflector::singularize($_ts));
 		}
 
-		$this->set(compact('_ts'));
-		$this->set(compact('_t'));
+		$this->set(compact('_ts')); // Titulo de la sección (para humanos) en Plural
+		$this->set(compact('_t')); // Titulo de la sección (para humanos) en Plural
 
 		if($this->uses){
 			foreach($this->uses as $modelName)
-				$this->m[] = $this->{$modelName};
+				$this->m[] = $this->{$modelName}; // Referemcia a los modelos para usar en el controlador
 			
-			$this->set('_m',$this->uses);
+			$this->set('_m',$this->uses); // Versión de $this->uses para la vista
 		} else
 			$this->set('_m',false);
 				
 		/// Paginate
+			
 		if($this->m){
 			$paging = array($this->m[0]->alias);
 			if($this->m[0]->hasMany){ $paging = array_merge($paging,array_keys($this->m[0]->hasMany)); }

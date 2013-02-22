@@ -2,7 +2,7 @@
 App::import('Controller','_base/My');
 class AbcsController extends MyController{
 	function admin_index() {
-		$this->paginate[$this->uses[0]]['limit'] = 25;
+		$this->paginate[$this->uses[0]] = array('limit'=>25,'order'=>$this->uses[0].'.created DESC, '.$this->uses[0].'.id DESC');
 		$find = array();
 
 		//// Buscador
@@ -31,6 +31,7 @@ class AbcsController extends MyController{
 
 			$this->data['q'] = $q;
 		}
+		
 		/////
 		
 		$this->set('items',$this->paginate($this->uses[0],$find));

@@ -53,8 +53,8 @@ class AppModel extends Model {
 		$url = array('rule'=>'url', 'allowEmpty'=>true, 'message'=>'Ingrese una dirección web válida.');
 		$date = array('rule'=>'date', 'allowEmpty'=>true, 'message'=>'Ingrese una fecha válida.');
 		$email = array('rule'=>'email', 'allowEmpty'=>false, 'message'=>'Ingrese una dirección de correo electrónico válida.');
-		$file = am($notEmpty,array('message'=>'Seleccione un archivo.'));
-		$text = am($notEmpty,array('rule'=>'notEmpty','message'=>'Ingrese un texto.'));
+		$file = array_merge($notEmpty,array('message'=>'Seleccione un archivo.'));
+		$text = array_merge($notEmpty,array('rule'=>'notEmpty','message'=>'Ingrese un texto.'));
 		
 		$rules = array(
 			'nombre'=>$notEmpty,
@@ -231,6 +231,7 @@ class AppModel extends Model {
 	function find_($find = array(), $type = 'all'){
 		$byId = false;
 		$find = (array)$find;
+		fb($this->recursive,'$this->recursive');
 
 		if(isset($find[0]) && ((int)$find[0])){
 			$byId = (int)$find[0];
@@ -271,9 +272,10 @@ class AppModel extends Model {
 			return $find['conditions'];
 		}else{
 			if(!isset($find['order'])){
-				if($this->hasField('orden'))
+				if($this->hasField('orden')){
 					$find['order'] = array($this->alias.'.orden'=>'DESC');
-				else{
+					
+				} else{
 					if($this->hasField('created'))
 						$find['order'] = array($this->alias.'.created' => 'DESC');
 					
@@ -281,7 +283,7 @@ class AppModel extends Model {
 				}
 			}
 		}
-		
+
 		$results = $this->find($type,$find);
 		if($sole) $this->recursive = $recursive;
 

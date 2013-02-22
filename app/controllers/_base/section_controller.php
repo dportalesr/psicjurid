@@ -11,6 +11,7 @@ class SectionController extends MyController{
 			$this->_flash('save_ok');
 			$this->redirect(array('action'=>'index','admin'=>1));
 		}
+		$this->detour('_base/section','admin_index');
 	}
 }
 ?>

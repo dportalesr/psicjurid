@@ -19,9 +19,10 @@ class Project extends AppModel {
 	var $hasOne = array(
 		'Projectportada'=>array(
 			'className'=>'Projectimg',
-			'foreignKey'=>false,
-			'conditions'=>'Projectportada.project_id = Project.id AND Projectportada.portada = 1'
+			'foreignKey'=>'project_id',
+			'conditions'=>'Projectportada.portada = 1'
 		)
 	);
+
 }
 ?>

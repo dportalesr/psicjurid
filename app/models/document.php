@@ -7,7 +7,8 @@ class Document extends AppModel {
 			'portada'=>false,
 			'fields'=>array(
 				'src'=>array(
-					'types'=>'docx|xlsx|ppt|pps|ppsx|pptx|doc|xls|pdf|jpg|gif|jpeg|png|zip|rar',
+					'types'=>'docx|xlsx|ppt|pps|ppsx|pptx|doc|xls|pdf|jpg|gif|jpeg|png|zip|rar|txt',
+					'maxsize'=>5120000,
 					'dir'=>'docs'
 				)
 			)

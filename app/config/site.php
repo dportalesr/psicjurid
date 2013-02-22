@@ -30,9 +30,11 @@ $config['Site']['og'] = array(
  * - admin: Nombre del catálogo en el menú del panel de administración, o si es array: Si tiene 1 elemento indica la clase del botón, o si son 2 elementos, el label y la clase; si no se especifica, lo toma de 'menu', sino de 'label'; especificar a false para omitir
 */
 $modules = array(
-	'about'=>array('nosotros','menu','admin'=>array('pages')),
-	'carousels'=>array('Carrusel','admin'=>array('photos')),
-	'banners'=>array('admin'=>array('banners')),
+	'about'=>array('quiénes somos','menu','admin'=>array('')),
+	'researchers'=>array('Investigadores','singu'=>'investigador','admin'=>array('users')),
+	'subsemun'=>array('Proyecto SUBSEMUN','route'=>'subsemun','admin'=>array('page')),
+	'carousels'=>array('carrusel','admin'=>array('photos')),
+	'banners'=>array('admin'=>array('tags')),
 
 	'services'=>array('servicios','menu','admin'=>array('')),
 	'projects'=>array('proyectos','menu'=>'Proyecto SUBSEMUN','admin'=>array('')),
@@ -45,7 +47,6 @@ $modules = array(
 	'posts'=>array('artículos','menu','admin'=>array('posts')),
 		'postimgs'=>array('imágenes','admin'=>false),
 		'comments'=>array('comentarios','admin'=>array('comment')),
-
 	'contacto'=>array('menu','admin'=>false),
 	'users'=>array('Usuarios','admin'=>array('users'))
 

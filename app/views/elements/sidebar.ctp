@@ -4,6 +4,65 @@
 if(is_c('inicio',$this)){
 	
 }
+
+
+if(is_c('services',$this)){
+
+
+if($services){
+echo '<ul class="services-submenu">';
+	foreach($services as $service){
+		echo $html->tag('li',
+			 $html->link($service[$_m[0]]['nombre'],array('controller'=>'services','action'=>'ver','id'=>$service[$_m[0]]['slug'])),
+			 array('class'=>substr($this->params['pass'][0],0,1)==$service[$_m[0]]['id']?'mSelected':'')
+			 );
+	}
+echo '</ul>',
+	 $html->div('wrapp',
+	 $html->link('Ver más',array('controller'=>'services','action'=>'ver',$this->params['pass'][0],1),array('class'=>'link-black'))
+	 ),
+	 $html->tag('br');
+			 
+
+	  
+}
+
+}
+
+
+if(is_c('about',$this))
+{
+
+echo '<ul class="about-menu">',
+	 $html->tag('li',
+					$html->link('Misión',array('controller'=>'about','action'=>'index')),
+						array('class'=>$this->params['action'] == '' || $this->params['action']=='index'  ? 'mSelected' : '')
+				),
+	 $html->tag('li',
+					$html->link('Visión',array('controller'=>'about','action'=>'vision')),
+						array('class'=>$this->params['action'] == 'vision' ? 'mSelected' : '')
+				),
+	 $html->tag('li',
+					$html->link('Organigrama',array('controller'=>'about','action'=>'organigrama')),
+						array('class'=>$this->params['action'] == 'organigrama' ? 'mSelected' : '')
+				),
+	 '</ul>';
+}
+
+
+
+if(is_c('projects',$this)){
+
+
+
+
+	
+}
+
+
+
+
+
 echo
 	$html->div('about_project'),
 		$html->image('caracola.png',array('alt'=>'caracola.jpg')),

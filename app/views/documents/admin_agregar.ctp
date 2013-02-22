@@ -1,0 +1,10 @@
+<?php
+echo
+	$this->element('adminhdr',array('links'=>array('back'))),
+	$this->element('inputs',array(
+		'schema'=>array(
+			'project_id'=>array('type'=>'hidden','value'=>$this->params['named']['project_id'])
+		)
+	)),
+	$this->element('tinymce',array('advanced'=>1,'size'=>'m'));
+?>

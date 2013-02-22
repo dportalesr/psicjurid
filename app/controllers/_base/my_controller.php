@@ -97,7 +97,7 @@ class MyController extends AppController{
 	}
 
 	function download($id = false){ $this->_download($id); } // Wrapper function
-	function _download($id = false, $src = 'src', $model = false){
+	function _download($id = false, $src = 'src', $model = false, $filename = false){
 		$id = $this->_checkid($id,false);
 		
 		if(!$model) $model = $this->uses[0];
@@ -110,11 +110,12 @@ class MyController extends AppController{
 			$f = pathinfo($file[$model][$src]);
 			if(!isset($file[$model][$this->$model->displayField])){
 				$modules = Cache::read('sitemodules');
-				$filename = $modules[$this->params['controller']]['route'];
-			} else
+				if(!$filename)
+					$filename = $modules[$this->params['controller']]['route'];
+			} elseif(!$filename)
 				$filename = $file[$model][$this->$model->displayField];
 
-			$filename = ucfirst(Inflector::slug(_dec($filename)));
+			$filename = ucfirst(Inflector::slug(_dec($filename))).'_'.$src;
 			$params = array(
 				'download' => true,
 				'id' => $f['basename'],

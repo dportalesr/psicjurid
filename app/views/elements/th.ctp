@@ -63,6 +63,7 @@ if($item){
 		//////////
 		case 'Post':
 		default:
+			$th['mas'] = 'Leer Más';
 		break;
 	}
 

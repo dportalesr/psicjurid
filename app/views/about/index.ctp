@@ -1,6 +1,8 @@
 <?php
 echo $this->element('top');
-if($item) echo $html->div(null,$item[$_m[0]]['descripcion'],array('id'=>'aboutText'));
+
+
+if($texto) echo $html->div('desc',$texto,array('id'=>'aboutText'));
 ?>
 </div>
 </div>

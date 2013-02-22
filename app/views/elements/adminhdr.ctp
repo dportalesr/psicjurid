@@ -65,7 +65,7 @@ if(($pgcnt && $filtro) || $filtering){
 } else
 	$filtro = '';
 
-//////
+////// OUTPUT
 
 echo $html->div('controles',$title.$filtro.$linksHtml);
 

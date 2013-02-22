@@ -1,3 +1,5 @@
+
+*{margin:0;padding:0;border:0;}
 body { background:#fff url(/img/bg.jpg) no-repeat center 189px;font-family:'Signika', sans-serif;font-weight:300;font-size:16px;line-height:20px; }
 a, a:visited { color:#555;text-decoration:none;outline:0; }
 a:hover, a:focus { color:#000;text-decoration:underline; }
@@ -14,6 +16,9 @@ h3, .title3 { margin:16px 0 12px 0;font-size:18px; }
 h4, .title4 { margin:16px 0 12px 0;font-size:14px; }
 
 .bold { font-weight:600 !important; }
+
+
+h2.title a{line-height:1.2;font-size:32px !important;color:#000 !important;text-decoration: none !important}
 
 .title:first-child, .title.alpha,
 h1:first-child,	h1.alpha, 
@@ -139,7 +144,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 	height:42px;
 	line-height:42px;
 	margin:0;
-	padding:0 23px;
+	padding:0 16px;
 	background:transparent;
 	color:#600;
 	font-size:18px;
@@ -177,6 +182,39 @@ h3:first-child, h3.alpha { margin-top:0; }
 }
 #menu .submenu li a:hover { background-color:#666;color:#fff; }
 #menu .submenu li:first-child a { border-top:0; }
+
+
+.link-black{color:#fff !important;margin:0 25px;font-size:14px;background:#000;padding:5px 15px;text-align:center;text-decoration:none !important}
+.link-black:hover{background:#63151E;}
+
+/**********ABOUT MENU************/
+.about-menu,.services-submenu{margin-bottom:41px;}
+.about-menu li,.services-submenu li{margin:8px 5px;}
+.about-menu li a,.services-submenu a{outline:none;-moz-border-radius:8px;-khtml-border-radius:8px;-webkit-border-radius:8px;border-radius:8px;text-decoration:none;color:#63141E;font-size:20px;display:block;padding:5px 10px;}
+.about-menu .mSelected a,.about-menu li:hover a,.services-submenu .mSelected a,.services-submenu li:hover a{color:#fff;background:#000;}
+
+
+
+
+/***********RESEARCHERS************/
+
+div.researchers{margin-top:18px;}
+div.researchers li{margin:2px 0;background:#F3F3F3;overflow:hidden;padding: 8px}
+div.researchers li.pair{background:#E8E8E8;}
+div.researchers li h3{color:#000;padding-top:8px;margin:0 !important;}
+div.researchers li h4{color:#911722;font:italic normal 14px 'Signika',sans-serif;}
+div.researchers li a{width:100px;display:block;text-align:left;color:#911722;float:right;clear:right;font:italic normal 14px 'Signika',sans-serif;}
+div.researchers li a.cv{margin-top:15px;}
+div.researchers li .thumb{float:left;height:59px;}
+.title2{font:normal 24px 'Signika',sans-serif;color:#000;}
+
+
+/**********PROJECTS*****************/
+.download{background:url(../img/download.png) no-repeat 0 center;line-height:2;min-height:38px;font-size:24px;padding-left:38px}
+
+.link-download{float:left;width:auto;clear:both;display:block;background:url(../img/vineta_negra.png) no-repeat 0 center;color:#63131E;padding-left: 10px;margin:5px 35px;text-decoration:underline;}
+.link-download:hover{text-decoration:none !important;}
+
 
 #body {
 	overflow:hidden;
@@ -294,7 +332,7 @@ a.visit_our_facebook {
 	font-size:0;
 	text-indent:100%;
 	white-space: nowrap;  
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .logos a.somos_mas { background-image: url(/img/logo_somos_mas.png); }
 .logos a.oprevidem { background-image: url(/img/logo_oprevidem.png); }
@@ -333,11 +371,15 @@ a.visit_our_facebook {
 .bulleted li li {  }
 
 .sectionHdr{
-	height:50px;
+	/*height:50px;*/
 	margin:0;
-	background-repeat:no-repeat;
-	background-position:top center;
-	background-color:#d3d3d3;
+/*	background-repeat:no-repeat;
+	background-position:top center;*/
+/*	background-color:#d3d3d3;*/
+	font-size:46px;
+	color:#000;
+	line-height: 2
+
 }
 
 .more { padding:0 10px 0 0;text-align:right; }
@@ -369,8 +411,8 @@ div.captcha > span { padding-left:12px; }
 
 /*** Detail ***/
 
-.date { font-size:10px;color:#999;margin:5px 0 0 0; }
-.desc { text-align: justify; }
+.date { font-size:16px;color:#000;margin:5px 0 0 0; }
+.desc { text-align: justify; color:#000;}
 .desc p { margin:0 0 10px 0;  }
 .comments {
 	float:left;
@@ -392,6 +434,9 @@ div.captcha > span { padding-left:12px; }
 
 .thumb, .thWrap, .thMask { overflow:hidden; }
 .thumb { padding:8px 16px 15px 16px; }
+
+.post{border-bottom:1px solid #8A342E;}
+
 .thWrap { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
 .thMask {
 	display:block;
@@ -538,7 +583,7 @@ div.captcha > span { padding-left:12px; }
 }
 #poll_form .question div.submit input:hover { background-image: url(/img/poll_answer_selected.png); }
 
-.sidebar {}
+.sidebar {margin-top:58px;}
 .sidebar #poll_form { background:#d3d3d3;padding:8px; }
 .sidebar #poll_form .questions { padding:3px 0 0 0; }
 .sidebar #poll_form .question { margin:0;padding:0;border:0; }

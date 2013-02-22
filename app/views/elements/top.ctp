@@ -18,6 +18,8 @@ if(isset($header)){
 	$header = $html->div('sectionHdr',$_ts);
 }
 
+//// OUTPUT
+
 echo
 	$html->div('content'.$wide),
 	$html->div('pad'),
