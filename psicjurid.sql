@@ -235,4 +235,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `nombre`, `apellidos`, `maste
 (1,	'pulsem',	'327d3429df2c4512edc07ed9e948aa75f5d14f50',	'Master',	NULL,	1,	'2010-01-01 00:00:00'),
 (2,	'admin',	'd033e22ae348aeb5660fc2140aec35850c4da997',	'Master',	NULL,	1,	'2010-01-01 00:00:00');
 
+<<<<<<< HEAD
 -- 2013-02-19 12:22:02
+=======
+-- 2013-02-19 12:14:51
+>>>>>>> sql
