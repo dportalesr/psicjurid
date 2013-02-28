@@ -55,12 +55,16 @@ class AppController extends Controller {
 		
 		//// CACHE
 		if(strpos($this->action,'admin_')===false){
-			/*
-			if(Cache::read(strtolower('Banner').'_recent') === false){
-				$this->loadModel('Banner');
-				Cache::write(strtolower('Banner').'_recent',$this->Banner->find_(array('contain'=>false)));
+			if(true){//if(is_c('projects',$this) && Cache::read('project_years') === false){
+				$this->loadModel('Project');
+				$years = $this->Project->find_(array('contain'=>false,'group'=>'anio','fields'=>array('DISTINCT YEAR(fecha) anio'),'order'=>'anio DESC'));
+				
+				$yrs = array();
+				foreach ($years as $yr)
+					$yrs[] = $yr[0]['anio'];
+				
+				Cache::write('project_years',$yrs);
 			}
-			*/
 			
 			if(($tweets = Cache::read('tweets')) === false){
 				$tweets = json_decode(file_get_contents('http://api.twitter.com/1/statuses/user_timeline.json/?count=4&screen_name=psicjurid'),true);

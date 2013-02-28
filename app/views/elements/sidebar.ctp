@@ -2,66 +2,70 @@
 <div class="pad">
 <?php
 if(is_c('inicio',$this)){
-	
 }
-
 
 if(is_c('services',$this)){
+	if($services){
+		echo $html->tag('ul',null,'services-submenu');
+			foreach($services as $service){
+				echo $html->tag('li',
+					 $html->link($service[$_m[0]]['nombre'],array('controller'=>'services','action'=>'ver','id'=>$service[$_m[0]]['slug'])),
+					 array('class'=>substr($this->params['pass'][0],0,1)==$service[$_m[0]]['id']?'mSelected':'')
+					 );
+			}
 
+		if(empty($this->params['named']['full']))
+			echo $html->tag('li',$html->link('Ver más',array('controller'=>'services','action'=>'ver',$this->params['pass'][0],'full'=>1),array('class'=>'link-black')),'more');
 
-if($services){
-echo '<ul class="services-submenu">';
-	foreach($services as $service){
-		echo $html->tag('li',
-			 $html->link($service[$_m[0]]['nombre'],array('controller'=>'services','action'=>'ver','id'=>$service[$_m[0]]['slug'])),
-			 array('class'=>substr($this->params['pass'][0],0,1)==$service[$_m[0]]['id']?'mSelected':'')
-			 );
+		echo '</ul>';
+
 	}
-echo '</ul>',
-	 $html->div('wrapp',
-	 $html->link('Ver más',array('controller'=>'services','action'=>'ver',$this->params['pass'][0],1),array('class'=>'link-black'))
-	 ),
-	 $html->tag('br');
-			 
-
-	  
 }
 
+if(is_c('about',$this)){
+	echo '<ul class="about-menu">',
+		 $html->tag('li',
+						$html->link('Misión',array('controller'=>'about','action'=>'index')),
+							array('class'=>$this->params['action'] == '' || $this->params['action']=='index'  ? 'mSelected' : '')
+					),
+		 $html->tag('li',
+						$html->link('Visión',array('controller'=>'about','action'=>'vision')),
+							array('class'=>$this->params['action'] == 'vision' ? 'mSelected' : '')
+					),
+		 $html->tag('li',
+						$html->link('Organigrama',array('controller'=>'about','action'=>'organigrama')),
+							array('class'=>$this->params['action'] == 'organigrama' ? 'mSelected' : '')
+					),
+		 '</ul>';
 }
 
+if(is_c('projects',$this) && $yrs = Cache::read('project_years')){
+	echo $html->tag('ul',null,array('id'=>'project_years'));
 
-if(is_c('about',$this))
-{
+	foreach ($yrs as $yr){
+		if($year == $yr){
+			$year_class = 'mSelected';
+			$year_list = $this->element('projects_by_year',array('projects'=>$current_year_list));
+		} else {
+			$year_list = $year_class = '';
+		}
 
-echo '<ul class="about-menu">',
-	 $html->tag('li',
-					$html->link('Misión',array('controller'=>'about','action'=>'index')),
-						array('class'=>$this->params['action'] == '' || $this->params['action']=='index'  ? 'mSelected' : '')
-				),
-	 $html->tag('li',
-					$html->link('Visión',array('controller'=>'about','action'=>'vision')),
-						array('class'=>$this->params['action'] == 'vision' ? 'mSelected' : '')
-				),
-	 $html->tag('li',
-					$html->link('Organigrama',array('controller'=>'about','action'=>'organigrama')),
-						array('class'=>$this->params['action'] == 'organigrama' ? 'mSelected' : '')
-				),
-	 '</ul>';
+		echo
+			$html->tag('li',null,$year_class),
+				$html->link($yr,'javascript:;',array('id'=>'y_'.$yr)),
+				$html->tag('ul',$year_list,array('id'=>'y_list_'.$yr)),
+			'</li>';
+	}
+
+	echo '</ul>';
+	$moo->addEvent('#project_years > li > a','click',array(
+		'url'=>'/projects/get_projects_by_year/"+this.id.split("_")[1]+"',
+		'update'=>'"y_list_"+this.id.split("_")[1]',
+		'spinner'=>'this',
+		'onsuccess'=>'this.removeEvents()',
+		'css'=>1
+	));
 }
-
-
-
-if(is_c('projects',$this)){
-
-
-
-
-	
-}
-
-
-
-
 
 echo
 	$html->div('about_project'),

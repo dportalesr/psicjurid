@@ -12,7 +12,7 @@ if($item)
 if($researchers){
 	echo $html->div('researchers'),
 	$html->tag('ul'),
-	$html->tag('h2','Nuestros Investigadores','title2');
+	$html->tag('h2','Nuestros Investigadores','title title2');
 
 		foreach ($researchers as $r) {
 
@@ -22,9 +22,8 @@ if($researchers){
 					$util->th($r,'Researcher',array('w' =>'56','h'=>59,'class'=>'thumb')),
 					$html->link('CV',array('controller'=>'researchers','action'=>'download',$r['Researcher']['id'],'cv'),array('class'=>'cv')),
 					$html->link('Publicaciones',array('controller'=>'researchers','action'=>'download',$r['Researcher']['id'],'pubs'),array('class'=>'')),
-					$html->tag('h3',$r['Researcher']['nombre'].' '),
-					$html->tag('h4',$r['Researcher']['puesto'].' '),
-
+					$html->div('title title3',$r['Researcher']['nombre'].' '),
+					$html->div('title title4',$r['Researcher']['puesto'].' '),
 				'</li>';
 
 		}

@@ -10,12 +10,12 @@ echo
 
 		echo $html->div('clear homeCols'),
 			$html->div('col col50 services'),
-				$html->div('title title1','Servicios');
+				$html->div('title title1 red big-red','Servicios');
 				if($service)
 					echo $this->element('th',array('item'=>$service));
 			echo '</div>',
 			$html->div('col col50 omega events'),
-				$html->div('title title1','Eventos');
+				$html->div('title title1 red big-red','Eventos');
 				if($event)
 					echo $this->element('th',array('item'=>$event));
 			echo '</div>',

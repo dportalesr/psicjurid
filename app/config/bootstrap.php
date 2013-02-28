@@ -33,7 +33,7 @@ function my_url_parser($url,&$obj){
 			'*'=>array('lang'),
 			'documents'=>array('project_id'),
 			'posts'=>array('category'),
-			'services'=>array('all')
+			'services'=>array('full')
 		);
 		
 		if($carried && is_array($url)){

@@ -58,7 +58,22 @@ if($item){
 		break;
 		//////////
 		case 'Album':
-			$th['mas'] = 'Ver Fotos';
+			$url = '/'.$item[$model.'portada']['src'];
+			$class = 'pulsembox';
+			$rel = 'gal_'.$item[$model]['id'];
+
+			$th['nombre'] =  $html->tag('h2',$html->link($item[$model]['nombre'],$url,compact('class','rel')),'title');
+			$thopts['class'] = $class;
+			$thopts['atts'] = compact('rel');
+
+			$gallery = '';
+			foreach ($item[$model.'img'] as $img) {
+				$gallery.= $html->link('','/'.$img['src'],array('class'=>'pulsembox','rel'=>'gal_'.$item[$model]['id']));
+			}
+
+			$th['desc'] = $html->div('hide',$gallery);
+			$class = '';
+			//$th['mas'] = 'Ver Fotos';
 		break;
 		//////////
 		case 'Post':

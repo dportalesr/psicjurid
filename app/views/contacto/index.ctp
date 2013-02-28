@@ -3,7 +3,7 @@ echo
 	$this->element('top'),
 	$html->div('clear'),
 		$html->div('form'),
-			$html->div('title title2','Ponte en Contacto'),
+			$html->div('title title2','Para cualquier duda o aclaración, no dudes en contactarnos, estamos para servirle.'),
 			$html->para('note',''),
 	
 			$form->create('Contact',array('id'=>'ContactForm','url'=>'/contacto/enviar')),
@@ -19,19 +19,10 @@ echo
 				)),
 			'</div>',
 		'</div>',
-		$html->div('info'),
-			$html->div('title title3','Oficinas'),
-			$html->para(null,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'),
-			$html->para(null,'Sed diam nonummy nibh euismod tincidunt.'),
-			$html->para(null,'laoreet dolore magna.'),
-			/*
-			$html->div('title title3','Cómo llegar'),
-			$html->link($html->image('mapa.jpg'),'/img/mapa.jpg',array('class'=>'pulsembox mapa')),
-			*/
-		'</div>',
 	'</div>',
 
 	$moo->ajaxform('ContactForm');
 ?>
 </div>
 </div>
+<?php echo $this->element('sidebar'); ?>
